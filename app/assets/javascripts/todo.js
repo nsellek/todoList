@@ -12,9 +12,32 @@ $(document).on("ready page:load", function(){
 	$('.new_todo').on('ajax:success', newTodo);
 
 	function newTodo() {
-		$('#todo').append('<li>' + arguments[1].name + '</li>');
+		var todo = arguments[1];
+		$('#todo').append('<li id='+todo.id+'>'+todo.name+'</li>');
 		$('#name').val('');
 	}
+
+	$('li').hover(function(event) {
+		var target = $(event.target);
+		if (target.is('li')){
+			$(target).css('cursor','pointer');
+		}
+	});
+
+	$('li').click(function(event){
+		var target = $(event.target);
+		if (target.is('li')){
+			$(target).wrap('<strike>');
+			puts(this.id);
+			$.ajax({
+				URL: "/todo/:id",
+				data: {
+					id: this.id
+				},
+				type: 'DELETE'
+			});
+		}
+	});
 
 	// function handler(event){
 	// 	var target = $(event.target);
@@ -29,20 +52,5 @@ $(document).on("ready page:load", function(){
 	// 		}
 	// 	}
 	// }
-
-
-	$('li').hover(function(event) {
-		var target = $(event.target);
-		if (target.is('li')){
-			$(target).css('cursor','pointer');
-		}
-	});
-
-	$('ul').click(function(event){
-		var target = $(event.target);
-		if (target.is('li')){
-			$(target).wrap('<strike>');
-		}
-	});
 
 });

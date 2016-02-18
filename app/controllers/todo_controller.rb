@@ -10,6 +10,11 @@ class TodoController < ApplicationController
   	render json: @todo.to_json
   end
 
+  def destroy
+  	todos = Todo.all.find(params[:id])
+  	todos.delete
+  end
+
   private
   	def todo_params
   		params.permit(:name)

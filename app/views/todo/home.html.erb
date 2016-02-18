@@ -7,6 +7,6 @@
 
 <ul id="todo">
 	<% @todos.each do |todo| %>
-	<li><%= todo.name %></li>
+	<li id="<%= todo.id %>"><%= todo.name %></li>
 	<% end %>
 </ul>
