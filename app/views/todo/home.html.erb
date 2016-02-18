@@ -1,2 +1,12 @@
-<h1>Todo#home</h1>
-<p>Find me in app/views/todo/home.html.erb</p>
+<h1>Single Page Todo List App</h1>
+
+<h3>New Todo Item</h3>
+<%= render 'new_todo' %>
+
+<h3>List of Todos</h3>
+
+<ul>
+	<% @todos.each do |todo| %>
+	<li><%= todo.name %></li>
+	<% end %>
+</ul>
