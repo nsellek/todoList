@@ -15,4 +15,14 @@ $(document).on("ready page:load", function(){
 		$('#todo').append('<li>' + arguments[1].name + '</li>');
 		$('#name').val('');
 	}
+
+	function handler(event){
+		var target = $(event.target);
+
+		if (target.is('li')){
+			$(target).wrap('<strike>');
+		}
+	}
+
+	$('ul').click(handler);
 });
