@@ -16,13 +16,33 @@ $(document).on("ready page:load", function(){
 		$('#name').val('');
 	}
 
-	function handler(event){
-		var target = $(event.target);
+	// function handler(event){
+	// 	var target = $(event.target);
 
+	// 	if (event.type === "click"){
+	// 		if (target.is('li')){
+	// 			$(target).wrap('<strike>');
+	// 		}
+	// 	} else if (event.type === "hover") {
+	// 		if (target.is('li')){
+	// 			$(target).css('cursor','pointer');
+	// 		}
+	// 	}
+	// }
+
+
+	$('li').hover(function(event) {
+		var target = $(event.target);
+		if (target.is('li')){
+			$(target).css('cursor','pointer');
+		}
+	});
+
+	$('ul').click(function(event){
+		var target = $(event.target);
 		if (target.is('li')){
 			$(target).wrap('<strike>');
 		}
-	}
+	});
 
-	$('ul').click(handler);
 });
