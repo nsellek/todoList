@@ -1,9 +1,18 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+
+  get 'sessions/create'
+
+  get 'sessions/destroy'
+
   resources :todo
 
   root 'todo#home'
 
   post '/todo' => 'todo#create', as: :create
+
+  get '/signup' => 'user#new'
+  post '/users' => 'user#create'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
