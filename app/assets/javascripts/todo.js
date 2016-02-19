@@ -30,10 +30,7 @@ $(document).on("ready page:load", function(){
 			$(target).wrap('<strike>');
 			puts(this.id);
 			$.ajax({
-				URL: "/todo/:id",
-				data: {
-					id: this.id
-				},
+				url: "/todo/"+this.id,
 				type: 'DELETE'
 			});
 		}

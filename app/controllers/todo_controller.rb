@@ -11,8 +11,10 @@ class TodoController < ApplicationController
   end
 
   def destroy
-  	todos = Todo.all.find(params[:id])
-  	todos.delete
+  	todos = Todo.all
+  	todo = todos.find(params[:id])
+  	todo.delete
+  	head :no_content
   end
 
   private

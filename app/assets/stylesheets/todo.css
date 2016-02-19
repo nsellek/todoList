@@ -2,3 +2,18 @@
 They will automatically be included in application.css.
 You can use Sass (SCSS) here: http://sass-lang.com/
 */
+
+body {
+	background-color: #e0e0eb;
+	margin: 0;
+	padding: 0;
+}
+
+#nav_bar {
+	background-color: white;
+	margin:	0;
+}
+
+h1 {
+
+}
